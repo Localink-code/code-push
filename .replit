@@ -3,6 +3,7 @@ modules = ["python-3.11"]
 
 [nix]
 channel = "stable-24_05"
+packages = ["cacert", "cargo", "libffi", "libiconv", "pkg-config", "rustc", "tree", "sqlite-interactive"]
 
 [unitTest]
 language = "python3"
@@ -13,3 +14,19 @@ requiredFiles = [".replit", "replit.nix"]
 [deployment]
 run = ["python3", "main.py"]
 deploymentTarget = "cloudrun"
+
+[workflows]
+runButton = "run"
+
+[[workflows.workflow]]
+name = "run"
+mode = "sequential"
+author = 40292099
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "python run.py"
+
+[[ports]]
+localPort = 5000
+externalPort = 80

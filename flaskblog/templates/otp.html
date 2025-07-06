@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+
+
+{% block content %}
+<div class="cyberpunk-form-container">
+    <div class="terminal-card">
+        <div class="card-header">
+            <div class="card-icon">
+                <i class="fas fa-shield" style="font-size: 16px; margin-left: 200px;">  OTP-PAGE</i>
+                          
+            </div>
+                <h3>
+                    &nbsp
+                </h3>
+        </div>
+        
+        <form method="POST" action="" class="cyberpunk-form">
+            {{ form.hidden_tag() }}
+            
+            <div class="form-group">
+                <div class="input-label">
+                    <i class="fas fa-lock"></i>
+                    {{ form.otp.label }}
+                </div>
+                {{ form.otp(size=32, class="cyberpunk-input") }}
+            </div>
+            
+            {% if session["role"]=="admin" %}
+            <div class="form-group">
+                <div class="input-label">
+                    <i class="fas fa-lock"></i>
+                    {{ form.otpa.label }}
+                </div>
+                {{ form.otpa(size=32, class="cyberpunk-input") }}
+            </div>
+            {% endif %}
+            
+            
+            
+            <div class="form-group">
+                {{ form.submit(class="cyberpunk-btn") }}
+            </div>
+        </form>
+    </div>
+</div>
+<script src="{{ url_for('static', filename='style.js') }}"></script>
+{% endblock content %}

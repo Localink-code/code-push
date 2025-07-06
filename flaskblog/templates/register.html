@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+
+
+
+{% block content %}
+<div class="cyberpunk-form-container">
+    <div class="terminal-card">
+        <div class="card-header">
+            <div class="card-icon">
+                <i class="fas fa-user-plus"></i>
+            </div>
+            <h2 class="card-title">USER REGISTRATION</h2>
+        </div>
+        
+        <form method="POST" action="" class="cyberpunk-form">
+            {{ form.hidden_tag() }}
+            
+            <div class="form-group">
+                <div class="input-label">
+                    <i class="fas fa-user"></i>
+                    {{ form.username.label }}
+                </div>
+                {{ form.username(size=32, class="cyberpunk-input") }}
+            </div>
+            {% if form.username.errors %}:
+                <div class="errors">
+                    {% for error in form.username.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            
+            <div class="form-group">
+                <div class="input-label">
+                    <i class="fas fa-envelope"></i>
+                    {{ form.email.label }}
+                </div>
+                {{ form.email(size=32, class="cyberpunk-input") }}
+            </div>
+            {% if form.email.errors %}:
+                <div class="errors">
+                    {% for error in form.email.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            
+            <div class="form-group">
+                <div class="input-label">
+                    <i class="fas fa-lock"></i>
+                    {{ form.password.label }}
+                </div>
+                {{ form.password(size=32, class="cyberpunk-input") }}
+            </div>
+            {% if form.password.errors %}:
+                <div class="errors">
+                    {% for error in form.password.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            
+            <div class="form-group">
+                <div class="input-label">
+                    <i class="fas fa-lock"></i>
+                    {{ form.confirm_password.label }}
+                </div>
+                {{ form.confirm_password(size=32, class="cyberpunk-input") }}
+            </div>
+            {% if form.confirm_password.errors %}:
+                <div class="errors">
+                    {% for error in form.confirm_password.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            
+            <div class="form-group">
+                {{ form.submit(class="cyberpunk-btn") }}
+            </div>
+        </form>
+    </div>
+</div>
+<script src="{{ url_for('static', filename='style.js') }}"></script>
+{% endblock content %}
