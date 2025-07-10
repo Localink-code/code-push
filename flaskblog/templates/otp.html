@@ -26,7 +26,7 @@
                 {{ form.otp(size=32, class="cyberpunk-input") }}
             </div>
             
-            {% if session["role"]=="admin" %}
+            {% if session["email_data"]["role"]=="admin" %}
             <div class="form-group">
                 <div class="input-label">
                     <i class="fas fa-lock"></i>

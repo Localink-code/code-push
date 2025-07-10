@@ -1,7 +1,8 @@
 # Import Flask-WTF and WTForms modules for form handling
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField
-from wtforms.validators import DataRequired, Length, Email, EqualTo, Optional
+from wtforms import StringField, PasswordField, SubmitField,RadioField
+from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
+from flaskblog.database import User
 
 
 # User registration form with validation
@@ -24,6 +25,19 @@ class RegisterForm(FlaskForm):
   
   # Submit button for the registration form
   submit = SubmitField("Sign Up")
+  role=RadioField("Role",choices=[("user","User"),("admin","Admin")],validators=[DataRequired()],default="user")
+  
+  def validate_username(self, username):
+    # Check if username already exists in the database
+    user = User.query.filter_by(username=username.data).first()
+    if user:
+      raise ValidationError("Username already exists")  # Raise validation error if username is taken
+  def validate_email(self, email):
+    # Check if email already exists in the database
+    user = User.query.filter_by(email=email.data).first()
+    if user:
+      raise ValidationError("Email already exists")
+    # Raise validation error if email is taken
 
 
 # OTP verification form for two-factor authentication

@@ -1,6 +1,7 @@
 # Import necessary Flask modules
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from flask_login import LoginManager
 
 # Create Flask application instance
 app=Flask(__name__)
@@ -16,6 +17,10 @@ db=SQLAlchemy(app)
 
 # Push application context to enable database operations
 app.app_context().push()
+login_manager=LoginManager(app)
+login_manager.login_view="login"
+
+
 
 # Import routes and database models (must be after app and db initialization)
 from flaskblog import route
