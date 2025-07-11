@@ -1,4 +1,4 @@
-##NOT THE FINAL VERSION of Readme and also App.  
+#NOT THE FINAL VERSION of Readme and also App.  
 # Local-Link Flask Blog Application
 
 A modern Flask web application with cyberpunk-themed UI featuring user registration, OTP verification, and role-based access control.
