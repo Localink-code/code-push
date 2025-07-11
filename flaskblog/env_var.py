@@ -10,5 +10,3 @@ load_dotenv(dotenv_path=env_path)
 email = os.getenv("email")
 password = os.getenv("passw")
 api_key = os.getenv("api_key")
-
-print(email, "is the email of the website")
