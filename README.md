@@ -1,4 +1,4 @@
-
+##NOT THE FINAL VERSION of Readme and also App.  
 # Local-Link Flask Blog Application
 
 A modern Flask web application with cyberpunk-themed UI featuring user registration, OTP verification, and role-based access control.
@@ -25,8 +25,7 @@ A modern Flask web application with cyberpunk-themed UI featuring user registrat
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
-cd flask-blog-app
+git clone https://github.com/Localink-code/code-push.git
 ```
 
 2. Install dependencies:
