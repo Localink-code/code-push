@@ -7,6 +7,6 @@ env_path = Path(__file__).resolve().parent.parent / ".env"
 load_dotenv(dotenv_path=env_path)
 
 # Get environment variables
-email = os.getenv("email")
-password = os.getenv("passw")
-api_key = os.getenv("api_key")
+email ="your email here"
+password ="your pass here"
+api_key ="Your api key here gemini"
